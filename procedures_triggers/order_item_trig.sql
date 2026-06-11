@@ -1,0 +1,9 @@
+CREATE SEQUENCE order_item_seq START WITH 1;
+
+CREATE OR REPLACE TRIGGER order_item_trigger
+BEFORE INSERT ON ORDER_ITEM
+FOR EACH ROW
+BEGIN
+    SELECT order_item_seq.NEXTVAL INTO :NEW.order_item_id FROM dual;
+END;
+/

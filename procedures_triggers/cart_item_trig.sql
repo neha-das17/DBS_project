@@ -1,0 +1,9 @@
+CREATE SEQUENCE cart_item_seq START WITH 1;
+
+CREATE OR REPLACE TRIGGER cart_item_trigger
+BEFORE INSERT ON CART_ITEM
+FOR EACH ROW
+BEGIN
+    SELECT cart_item_seq.NEXTVAL INTO :NEW.cart_item_id FROM dual;
+END;
+/

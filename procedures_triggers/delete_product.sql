@@ -1,0 +1,5 @@
+CREATE OR REPLACE PROCEDURE delete_product(pid NUMBER) IS
+BEGIN
+    DELETE FROM PRODUCT WHERE product_id = pid;
+END;
+/

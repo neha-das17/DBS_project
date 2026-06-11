@@ -1,0 +1,9 @@
+CREATE SEQUENCE category_seq START WITH 1;
+
+CREATE OR REPLACE TRIGGER category_trigger
+BEFORE INSERT ON CATEGORY
+FOR EACH ROW
+BEGIN
+    SELECT category_seq.NEXTVAL INTO :NEW.category_id FROM dual;
+END;
+/
